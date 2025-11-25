@@ -1,3 +1,12 @@
+/* ===========================
+   RESET E FIX COMPATIBILITÀ
+   =========================== */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f7f9fb;
@@ -6,7 +15,16 @@ body {
     align-items: flex-start;
     min-height: 100vh;
     padding: 20px;
+    margin: 0;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
+
+/* ===========================
+   CONTAINER
+   =========================== */
+
 .container {
     background-color: #ffffff;
     padding: 2rem;
@@ -15,24 +33,41 @@ body {
     max-width: 600px;
     width: 100%;
 }
+
+/* ===========================
+   INPUT GROUP
+   =========================== */
+
 .input-group label {
     font-weight: 600;
     color: #333;
     margin-bottom: 0.5rem;
     display: block;
 }
-.input-group input, .input-group select {
+
+.input-group input,
+.input-group select {
     width: 100%;
     padding: 0.75rem;
     border: 2px solid #e2e8f0;
     border-radius: 0.5rem;
     transition: border-color 0.3s, box-shadow 0.3s;
+
+    /* iPhone zoom fix */
+    font-size: 16px !important;
 }
-.input-group input:focus, .input-group select:focus {
+
+.input-group input:focus,
+.input-group select:focus {
     border-color: #3b82f6;
     outline: none;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
+
+/* ===========================
+   RESULT BOXES
+   =========================== */
+
 .result-box {
     padding: 1rem;
     border-radius: 0.75rem;
@@ -40,35 +75,18 @@ body {
     font-weight: 700;
     text-align: center;
 }
-/* ... qui c'è tutto il tuo codice CSS esistente ... */
 
-/* Codice per correggere lo zoom su iPhone/iOS */
-@media only screen and (max-width: 600px) { 
-  input[type="text"],
-  input[type="number"],
-  input[type="tel"] {
-    font-size: 16px !important;
-  }
-}
+/* ===========================
+   MOBILE FIX EXTRA
+   =========================== */
 
-/* iPhone zoom fix */
-input, select, textarea {
-    font-size: 16px !important;
-}
+@media (max-width: 600px) {
+    input,
+    select {
+        font-size: 16px !important;
+    }
 
-/* Responsive container */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 20px;
-}
-
-/* Prevent overflow */
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
+    .container {
+        padding: 1.5rem;
+    }
 }
